@@ -5,8 +5,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require('mongoose');
-//const encrypt = require('mongoose-encryption');
-//const md5 = require('md5');
+const encrypt = require('mongoose-encryption');
+const md5 = require('md5');
 const bcrypt = require('bcrypt');
 
 const app = express();
@@ -42,6 +42,7 @@ app.get('/register', (req, res) => {
   res.render('register');
 
 });
+
 
 app.post('/register', (req, res) =>{
 
@@ -87,6 +88,8 @@ app.post('/login', (req, res) =>{
     }
   });
 });
+
+
 
 app.listen(port, () => console.log(`Server started at port: ${port}`)
 );
